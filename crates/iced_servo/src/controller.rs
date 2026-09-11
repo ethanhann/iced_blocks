@@ -346,6 +346,16 @@ impl ServoWebViewController {
         self.inner.webview.reload();
     }
 
+    /// Set the page zoom factor (1.0 = 100%).
+    pub fn set_page_zoom(&self, factor: f32) {
+        self.webview().set_page_zoom(factor);
+    }
+
+    /// Get the current page zoom factor.
+    pub fn page_zoom(&self) -> f32 {
+        self.webview().page_zoom()
+    }
+
     /// Whether Servo's session history has any back entries.
     pub fn can_go_back(&self) -> bool {
         self.inner.webview.can_go_back()
