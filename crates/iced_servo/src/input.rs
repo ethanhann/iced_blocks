@@ -14,8 +14,8 @@ use servo::{
     CSSPixel, Code as ServoCode, CompositionEvent, CompositionState, ImeEvent, InputEvent,
     Key as ServoKey, KeyState, KeyboardEvent, Location as ServoLocation,
     Modifiers as ServoModifiers, MouseButton, MouseButtonAction, MouseButtonEvent, MouseMoveEvent,
-    NamedKey as ServoNamedKey, TouchEvent, TouchEventType, TouchId, WebView, WebViewPoint,
-    WheelDelta, WheelEvent, WheelMode,
+    NamedKey as ServoNamedKey, TouchEvent, TouchEventType, TouchId, TouchPointerType, WebView,
+    WebViewPoint, WheelDelta, WheelEvent, WheelMode,
 };
 
 use crate::controller::ServoWebViewController;
@@ -160,6 +160,7 @@ fn translate_touch(event: &touch::Event, bounds: Rectangle, webview: &WebView) -
         event_type,
         touch_id,
         web_point(local, 1.0),
+        TouchPointerType::Touch,
     )));
     true
 }
